@@ -1,11 +1,6 @@
-.App {
-  text-align: center;
-}
+.App { text-align: justify; }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.App-logo { height: 40vmin;  pointer-events: none; }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -24,9 +19,7 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
+.App-link { color: #61dafb; }
 
 @keyframes App-logo-spin {
   from {

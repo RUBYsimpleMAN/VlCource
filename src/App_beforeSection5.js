@@ -88,7 +88,6 @@ if (this.state.stateCarsVisible) {
   visibleCars = this.state.stateCarsArray.map((everyCarInState, id) => {
     return(
       <div style={divStyle} key={id}>
-        <h1>{this.props.title}</h1>
         <Car
           // key={index}
           plant={everyCarInState.plant}

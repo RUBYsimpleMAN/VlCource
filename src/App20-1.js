@@ -44,32 +44,6 @@ class App extends Component {
 
   // onChangeName variant arrow function 
 
-  // onChangeName variant general function 
-  deleteHandler(id, model){ // без BIND  к THIS обращаться нельзя,
-                   // т.к. обычная функция создаёт свой контекст
-    console.log(model, id)
-    console.log('method_Delete')
-    this.setState({pageTitle: `'The Car' ${model} 'Was Deleted!'`})
-    console.log(JSON.stringify(id, null, 2))
-    const newStateCarsArrayForDelete = this.state.stateCarsArray.concat()
-    newStateCarsArrayForDelete.splice(id, 1)
-    this.setState({stateCarsArray: newStateCarsArrayForDelete})
-  }
-
-  // deleteHandler variant arrow function 
-  deleteHandlerArrowFunc = () => {
-    console.log('method_Delete_Alarm')
-    this.setState({pageTitle: 'Will Be Deleted!'})
-    // стрелочная функция не создаёт собственного контекста
-    // поэтому через THIS мы обращаемся к контексту текущего компонента
-  }
-
-  onDeleteMouseOutMethod = () => {
-    console.log('method_Delete_Alarm_Clear')
-    this.setState({pageTitle: 'yeah... may be not just now...'})
-    // стрелочная функция не создаёт собственного контекста
-    // поэтому через THIS мы обращаемся к контексту текущего компонента
-  }
 
   render() {
     console.log('Render')
@@ -88,7 +62,6 @@ if (this.state.stateCarsVisible) {
   visibleCars = this.state.stateCarsArray.map((everyCarInState, id) => {
     return(
       <div style={divStyle} key={id}>
-        <h1>{this.props.title}</h1>
         <Car
           // key={index}
           plant={everyCarInState.plant}
@@ -97,10 +70,6 @@ if (this.state.stateCarsVisible) {
           // onChangeTitle={this.changeTitleHandler.bind(this, everyCarInState.plant)}
           onChangeTitle={() => this.changeTitleHandler(everyCarInState.plant)}
           onChangeName={event => this.onChangeName(event.target.value, id)}
-          onDelete={this.deleteHandler.bind(this, id)}
-          onDeleteHandlerAlarmArrowFunc={this.deleteHandlerArrowFunc}
-          onDeleteMouseOutProperty={this.onDeleteMouseOutMethod}
-          // onDelete={this.deleteHandler.bind(this, id)}
         />
       </div>
     )
