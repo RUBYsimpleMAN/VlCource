@@ -2,50 +2,7 @@ import React from 'react'
 import './Car.css'
 
 class Car extends React.Component{
-
-// UPDATE LIFECICLEs
-
-  componentWillReceiveProps(nextProps) {
-    console.log('Call Car componentWillReceiveProps inStatefullCarComponent', nextProps)
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('Call Car shouldComponentUpdate inStatefullCarComponent', nextProps, nextState)
-    return nextProps.model.trim() !== this.props.model.trim()
-  }
-
-// ------------------------------------------------------------------------------------------
-  componentWillUpdate(nextProps, nextState) {
-    console.log('Call Car componentWillUpdate inStatefullCarComponent', nextProps, nextState)
-  }
-// STATIC метод - нет доступа к THIS
-  static getDerivedStateFromProps(nextProps, prevState) {
-    console.log('Call Car getDerivedStateFromProps inStatefullCarComponent', nextProps, prevState)
-    return prevState
-  }
-// ------------------------------------------------------------------------------------------
-
-  componentDidUpdate() {
-    console.log('Call Car componentDidUpdate inStatefullCarComponent')
-  }
-
-  getSnapshotBeforeUpdate() {
-    console.log('Call Car getSnapshotBeforeUpdate inStatefullCarComponent')
-  }
-
-// DELETE LIFECICLEs
-
-  componentWillUnmount() {
-    console.log('Call Car componentWillUnmount inStatefullCarComponent')
-  }
-
   render() {
-    console.log('Call Car render inStatefullCarComponent')
-
-// if (Math.random() > .7) {
-//   throw new Error('Error: Car random failed!')
-// }
-
     return(
       <div>
         <h1 style={{fontWeight:300}}>Марка:       {this.props.plant}</h1>

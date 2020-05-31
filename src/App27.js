@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import                    './App.css';
-import Car from           './Components/Car/Car';
-import ErrorBoundary from './Components/ErrorBoundary/ErrorBoundary'
+import './App.css';
+import Car from '../src/Components/Car/Car';
+
 
 class App extends Component {
 
-constructor(props) {
-  console.log('Call App Constructor inStatefullAppComponent')
-  super(props)
-  this.state = {
+  state = {
     stateCarsArray: [
       {plant: 'BMW', model: '238', year: '2018'},
       {plant: 'Kia', model: 'Rio', year: '2017'},
@@ -17,8 +14,6 @@ constructor(props) {
     pageTitle: 'ТриАВТА',
     stateCarsVisible: false
   }
-
-}
 
   // changeTitleHandler = (newTitle) => {
   //   this.setState({
@@ -76,16 +71,8 @@ constructor(props) {
     // поэтому через THIS мы обращаемся к контексту текущего компонента
   }
 
-componentWillMount() {
-  console.log('Call App componentWillMount inStatefullAppComponent')
-}
-
-componentDidMount() {
-  console.log('Call App componentDidMount inStatefullAppComponent')
-}
-
   render() {
-    console.log('Call App Render inStatefullAppComponent')
+    console.log('Render')
     const divStyle = {
       'margin':  '1% 2%',
       'padding': '2% 2%',
@@ -101,21 +88,19 @@ if (this.state.stateCarsVisible) {
   visibleCars = this.state.stateCarsArray.map((everyCarInState, id) => {
     return(
       <div style={divStyle} key={id}>
-        <ErrorBoundary>
-          <Car
-            // key={index}
-            plant={everyCarInState.plant}
-            model={everyCarInState.model}
-            year= {everyCarInState.year}
-            // onChangeTitle={this.changeTitleHandler.bind(this, everyCarInState.plant)}
-            onChangeTitle={() => this.changeTitleHandler(everyCarInState.plant)}
-            onChangeName={event => this.onChangeName(event.target.value, id)}
-            onDelete={this.deleteHandler.bind(this, id)}
-            onDeleteHandlerAlarmArrowFunc={this.deleteHandlerArrowFunc}
-            onDeleteMouseOutProperty={this.onDeleteMouseOutMethod}
-            // onDelete={this.deleteHandler.bind(this, id)}
-          />
-        </ErrorBoundary>
+        <Car
+          // key={index}
+          plant={everyCarInState.plant}
+          model={everyCarInState.model}
+          year= {everyCarInState.year}
+          // onChangeTitle={this.changeTitleHandler.bind(this, everyCarInState.plant)}
+          onChangeTitle={() => this.changeTitleHandler(everyCarInState.plant)}
+          onChangeName={event => this.onChangeName(event.target.value, id)}
+          onDelete={this.deleteHandler.bind(this, id)}
+          onDeleteHandlerAlarmArrowFunc={this.deleteHandlerArrowFunc}
+          onDeleteMouseOutProperty={this.onDeleteMouseOutMethod}
+          // onDelete={this.deleteHandler.bind(this, id)}
+        />
       </div>
     )
   })
