@@ -10,7 +10,7 @@
     "elliptic": "^6.5.3",
     "lodash": "^4.17.20",
     "node-forge": "^0.10.0",
-    "object-path": "^0.11.5",
+    "object-path": "^0.11.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "^3.4.1",
